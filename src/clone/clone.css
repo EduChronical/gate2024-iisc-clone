@@ -1,0 +1,62 @@
+/* GATE 2024 clone: additions for client-side search + notifications panel.
+   Palette taken from the original Divi theme: gold #bea150, teal #005059, navy #02343f */
+.gc-tools{display:inline-flex;gap:6px;vertical-align:middle;margin-left:6px;list-style:none;padding:0}
+.et_pb_social_media_follow li.gc-tool{position:relative;display:inline-block;margin-bottom:0 !important;margin-right:8px}
+.gc-btn{width:32px;height:32px;border-radius:50%;background:#02343f;color:#fff;border:0;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:14px;line-height:1;padding:0;transition:background .2s}
+.gc-btn:hover,.gc-btn:focus-visible{background:#005059;outline:2px solid #fff;outline-offset:1px}
+.gc-badge{position:absolute;top:-5px;right:-6px;min-width:17px;height:17px;border-radius:9px;background:#c0392b;color:#fff;font:700 10px/17px interstate,Arial,sans-serif;text-align:center;padding:0 4px;pointer-events:none}
+.gc-badge[hidden]{display:none}
+/* notifications panel */
+.gc-panel{position:fixed;z-index:100001;top:70px;right:16px;width:360px;max-width:calc(100vw - 24px);max-height:70vh;display:flex;flex-direction:column;background:#fff;border-top:4px solid #bea150;box-shadow:0 12px 40px rgba(2,52,63,.35);font-family:interstate,"Open Sans",Arial,sans-serif;color:#02343f}
+.gc-panel[hidden]{display:none}
+.gc-panel header{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;background:#005059;color:#fff}
+.gc-panel header h3{color:#fff;font-size:15px;letter-spacing:1px;text-transform:uppercase;padding:0;margin:0;font-weight:600}
+.gc-panel header button{background:none;border:0;color:#fff;cursor:pointer;font-size:12px;text-decoration:underline;padding:2px 4px}
+.gc-panel ul{list-style:none;margin:0;padding:0;overflow:auto}
+.gc-panel li{border-bottom:1px solid #e8e1cb;display:flex;align-items:flex-start}
+.gc-panel li a{flex:1;display:block;padding:10px 6px 10px 16px;color:#02343f;font-size:14px;line-height:1.35}
+.gc-panel li a:hover{background:#f7f2e4}
+.gc-panel li.gc-unread a{font-weight:600}
+.gc-panel li.gc-unread a:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#bea150;margin-right:8px;vertical-align:middle}
+.gc-panel li small{display:block;color:#74a0a5;font-weight:400;font-size:12px;margin-top:2px}
+.gc-panel li .gc-x{background:none;border:0;color:#9b8c4d;cursor:pointer;font-size:16px;padding:10px 12px}
+.gc-panel li .gc-x:hover{color:#c0392b}
+.gc-panel .gc-foot{display:flex;justify-content:space-between;padding:10px 16px;background:#f7f2e4;font-size:13px}
+.gc-panel .gc-foot a,.gc-panel .gc-foot button{color:#005059;font-weight:600;background:none;border:0;cursor:pointer;font-size:13px;padding:0}
+.gc-empty{padding:18px 16px;color:#74a0a5;font-size:14px}
+/* search overlay */
+.gc-search{position:fixed;inset:0;z-index:100002;background:rgba(2,52,63,.92);display:flex;justify-content:center;align-items:flex-start;padding:8vh 16px 16px;font-family:interstate,"Open Sans",Arial,sans-serif}
+.gc-search[hidden]{display:none}
+.gc-search-box{width:760px;max-width:100%;background:#fff;border-top:5px solid #bea150;box-shadow:0 20px 60px rgba(0,0,0,.4);display:flex;flex-direction:column;max-height:84vh}
+.gc-search-box form{display:flex;align-items:center;border-bottom:1px solid #e8e1cb;margin:0}
+.gc-search-box input{flex:1;border:0;padding:18px 20px;font-size:20px;color:#02343f;font-family:inherit;outline:none;background:#fff;min-width:0}
+.gc-search-box .gc-close{background:none;border:0;font-size:26px;color:#005059;cursor:pointer;padding:0 18px}
+.gc-results{overflow:auto;padding:4px 0 10px}
+.gc-results h4{margin:12px 20px 4px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#9b8c4d;padding:0}
+.gc-results a{display:block;padding:9px 20px;color:#02343f;border-left:3px solid transparent}
+.gc-results a:hover,.gc-results a.gc-active{background:#f7f2e4;border-left-color:#bea150}
+.gc-results a b{display:block;font-size:16px;color:#005059;font-weight:600}
+.gc-results a span{display:block;font-size:13px;color:#555;line-height:1.45;margin-top:2px}
+.gc-results mark{background:#f3e3b0;color:inherit;padding:0 1px}
+.gc-hint{padding:14px 20px;color:#74a0a5;font-size:14px}
+.gc-kbd{font-size:11px;border:1px solid #cfc096;border-radius:3px;padding:0 4px;color:#9b8c4d}
+/* full search page */
+.gc-page-results{max-width:1080px;margin:0 auto 60px;padding:0 20px;font-family:interstate,"Open Sans",Arial,sans-serif}
+.gc-page-results .gc-results{overflow:visible}
+.gc-page-results .gc-results a{padding:14px 18px;border-bottom:1px solid #eee}
+.gc-desk-tools,.gc-mobile-tools{list-style:none;margin:0 !important;padding:0 !important;display:flex;gap:4px}
+.gc-desk-tools{position:absolute;top:14px;right:18px;z-index:20}
+.gc-desk-tools li.gc-tool,.gc-mobile-tools li.gc-tool{margin:0 4px 0 0 !important}
+.gc-desk-tools .gc-btn{width:30px;height:30px;font-size:13px}
+.gc-mobile-tools{display:none !important}
+/* mobile: put tool buttons next to the hamburger */
+@media (max-width:980px){
+  .gc-panel{top:60px}
+  .gc-desk-tools{display:none !important}
+  .gc-mobile-tools{display:flex !important;position:absolute;right:52px;top:50%;transform:translateY(-50%);z-index:5}
+}
+@media (max-width:480px){.gc-search-box input{font-size:17px;padding:14px}.gc-search{padding-top:3vh}}
+.gc-counter{display:block;font-size:15px;color:#333;line-height:1.3;padding:2px 0}
+.gc-table-note{font-size:12px;color:#74a0a5;margin:6px 0 0;padding:0;font-style:italic}
+.gc-table-note a{color:inherit;text-decoration:underline}
+.gc-search-box input::-webkit-search-cancel-button{-webkit-appearance:none;display:none}

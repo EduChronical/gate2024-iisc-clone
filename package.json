@@ -1,0 +1,16 @@
+{
+  "name": "gate2024-clone",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Faithful static clone of the GATE 2024 (IISc Bengaluru) website",
+  "scripts": {
+    "start": "node server.js 8080",
+    "build": "python3 build.py",
+    "check": "node tools/check.js http://localhost:8080",
+    "test": "node tools/functional-test.js http://localhost:8080",
+    "compare": "node tools/compare.js \"$(cat tools/compare-jobs.json)\""
+  },
+  "devDependencies": {
+    "playwright-core": "^1.49.0"
+  }
+}
